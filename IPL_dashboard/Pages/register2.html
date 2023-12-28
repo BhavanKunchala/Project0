@@ -1,0 +1,32 @@
+
+<div class="container d-flex flex-row justify-content-center">
+   
+    <form  id="registerForm" class="form-control form">
+        <h1 class="heading">Register</h1>
+        <div class="input_field">
+            <label for="nameid" class="text-start label">NAME: </label>
+            <input type="text"  id="nameid" class="m-2 form-control" ng-model="userName"/>
+        </div>
+        <div class="input_field">
+            <label for="emailid" class="text-start label">EMAIL:</label>
+            <input type="email"  id="emailid" class="m-2 form-control" ng-model="userEmail"/>
+        </div>
+        <div class="input_field">
+            <label for="Password" class="text-start label">PASSWORD:</label>
+            <input type="password"  id="Password" class="m-2 form-control" ng-model="userPassword"/>
+        </div>
+        
+        <div class="d-flex flex-column justify-content-center">
+            <div class="input_field m-auto">
+                <button class="btn btn-primary" ng-click="register(userName, userEmail, userPassword)" id="register">Register</button>
+            </div>
+            <p class="text-center mb-0 mt-4 dht">Already have an account?</p>
+            <a class="text-center dht" href="/Pages/index2.html#!/signin">SignIn</a>
+        </div>
+        
+    </form>
+
+    <!-- <input type="checkbox" ng-model="show" id="haveAccount">
+    <label for="haveAccount">Have Account</label> -->
+
+</div>

@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ajay",
+      "email": "ajay@gmail.com",
+      "password": "#ajay123"
+    },
+    {
+      "name": "Bhavan",
+      "email": "bhavan@gmail.com",
+      "password": "#Bha123",
+      "id": 2
+    },
+    {
+      "name": "Saidavali",
+      "email": "saida@gmail.com",
+      "password": "#saida",
+      "id": 3
+    },
+    {
+      "name": "Dinesh",
+      "email": "dinesh@gmail.com",
+      "password": "#dinesh",
+      "id": 4
+    },
+    {
+      "name": "Aditya",
+      "email": "adi@gmail.com",
+      "password": "#aditya1",
+      "id": 5
+    }
+    
+    
+  ]
+}

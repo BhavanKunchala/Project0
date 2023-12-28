@@ -1,0 +1,116 @@
+
+
+<div class="dashboard" id="home">
+    
+    <div class="d-flex flex-row justify-content-center m-3">
+        <img class="ipl_logo mr-3" src="https://assets.ccbp.in/frontend/react-js/ipl-logo-img.png ">
+        <h1 class="dashboard_heading ml-5">IPL Dashboard</h1>
+    </div>
+    <div class="d-flex flex-column justify-content-center m-3">
+        <div class="d-flex flex-row justify-content-center mr-3">
+            <button class="button btn btn-outline-light text-white d-flex flex-row justify-content-center align-items-center m-3" type="button" ng-click="getData('RCB')">
+                <img class="team_logo" src="https://assets.ccbp.in/frontend/react-js/rcb-logo-img.png">
+                <h3 class="team_heading">Royal Challengers Banglore</h3>
+            </button>
+            <button class="button btn btn-outline-light text-white d-flex flex-row justify-content-center align-items-center m-3" type="button" ng-click="getData('KKR')">
+                <img class="team_logo" src="https://assets.ccbp.in/frontend/react-js/kkr-logo-img.png">
+                <h3 class="team_heading">Kolkata Knight Riders</h3>
+            </button>
+            
+        </div>
+         
+        <div class="d-flex flex-row justify-content-center mr-3">
+            <button class="button btn btn-outline-light text-white d-flex flex-row justify-content-center align-items-center m-3" type="button" ng-click="getData('KXP')">
+                <img class="team_logo" src="https://assets.ccbp.in/frontend/react-js/kxp-logo-img.png">
+                <h3 class="team_heading">Kings XI Punjab</h3>
+            </button>
+            <button class="button btn btn-outline-light text-white d-flex flex-row justify-content-center align-items-center m-3" type="button" ng-click="getData('CSK')">
+                <img class="team_logo" src="https://assets.ccbp.in/frontend/react-js/csk-logo-img.png">
+                <h3 class="team_heading">Chennai Super Kings</h3>
+            </button>
+            
+        </div>
+
+        <div class="d-flex flex-row justify-content-center mr-3">
+            <button class="button btn btn-outline-light text-white d-flex flex-row justify-content-center align-items-center m-3" type="button" ng-click="getData('RR')">
+                <img class="team_logo" src="https://assets.ccbp.in/frontend/react-js/rr-logo-img.png">
+                <h3 class="team_heading">Rajasthan Royals</h3>
+            </button>
+            <button class="button btn btn-outline-light text-white d-flex flex-row justify-content-center align-items-center m-3" type="button" ng-click="getData('MI')">
+                <img class="team_logo" src="https://assets.ccbp.in/frontend/react-js/mi-logo-img.png">
+                <h3 class="team_heading">Mumbai Indians</h3>
+            </button>
+            
+        </div>
+
+        <div class="d-flex flex-row justify-content-center mr-3">
+            <button class="button btn btn-outline-light text-white d-flex flex-row justify-content-center align-items-center m-3" type="button" ng-click="getData('SH')">
+                <img class="team_logo" src="https://assets.ccbp.in/frontend/react-js/srh-logo-img.png">
+                <h3 class="team_heading">Sunrisers Hyderabad</h3>
+            </button>
+            <button class="btn btn-outline-light text-white d-flex flex-row justify-content-center align-items-center m-3" type="button" ng-click="getData('DC')">
+                <img class="team_logo" src="https://assets.ccbp.in/frontend/react-js/dc-logo-img.png">
+                <h3 class="team_heading">Delhi Capitals</h3>
+            </button>
+            
+        </div>
+
+            
+    </div>
+    
+
+</div>
+
+<div class="team-details-container d-flex flex-column justify-content-center" id="teamDetails" ng-hide="show">
+   
+    <div class="d-flex flex-row justify-content-start">
+        <button class="btn btn-secondary mb-2" ng-click="back()">Back</button>
+    </div>
+    <img class="banner"  src="{{data.team_banner_url}}" >
+    <div class="nav">
+        <h3 class="lm mt-2">Recent Matches</h3>
+        <div class="m-2">
+            <input type="search" placeholder="" class="" ng-model="val">
+            <button class="btn btn-primary" ng-click="searchItem(val)">Search</button>
+        </div>
+
+        <div class="m-2">
+            <label for="filtering">Filter</label>
+            <select name="filter" id="filtering">
+                <option value="getback" ng-click="getPreviusData()">Filter</option>
+                <option value="CSK" ng-click="filterBy( 'CSK' )">CSK</option>
+                <option value="RCB" ng-click="filterBy( 'RCB' )">RCB</option>
+                <option value="SRH" ng-click="filterBy( 'SRH' )">SRH </option>
+                <option value="RR" ng-click="filterBy( 'RR' )">RR </option>
+                <option value="KKR" ng-click="filterBy( 'KKR' )">KKR </option>
+                <option value="MI" ng-click="filterBy( 'MI' )">MI </option>
+                <option value="DC" ng-click="filterBy( 'DC' )">DC </option>
+            </select>
+        </div>
+        
+        <div class="m-2">
+            <label for="sorting">SortBy</label>
+            <select name="sortby" id="sorting">
+                <option value="date" selected ng-click="changeOrder( 'date_of_match' )">Date</option>
+                <option value="innings" ng-click="changeOrder( 'result' )">Result</option>
+                <option value="innings" ng-click="changeOrder( 'competing_team' )">Team </option>
+                <option value="innings" ng-click="changeOrder( 'venue' )">Venue </option>
+            </select>
+        </div>
+        
+    </div>
+    
+   
+    <div class="rm-details  d-flex flex-row justify-content-center">
+        <div class="m_details d-flex flex-column justify-content-center m-3" ng-repeat="item in arr | orderBy : orderByMe | filter : item">
+            <img class="teamd_logo"  src="{{item.competing_team_logo}}">
+            <h2 class="head" id="team_name">{{item.competing_team}}</h2>
+            <p id="wonby">{{item.result}}</p>
+            <p >{{item.man_Of_the_match}}</p></b>
+        </div>
+
+        
+    </div>
+    
+</div>
+
